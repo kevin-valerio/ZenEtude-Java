@@ -88,6 +88,6 @@
       </BorderPane>
    </children>
    <stylesheets>
-      <URL value="@/css/Accueil.css" />
+      <URL value="@/css/MainStyle.css" />
    </stylesheets>
 </VBox>

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
@@ -24,20 +25,20 @@ public class ControllerAccueil {
             public void handle(ActionEvent event) {
 
                 //Au clic du boutton "S'inscrire", on affiche la page d'inscription
-                Squelette squelette = new Squelette("Inscription", Main.primaryStage);
+                Squelette squelette = new Squelette("Inscription", Main.mainStage);
 
 
-                Parent root = null;
+                Parent conteneur = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("../xml_design/inscription.fxml"));
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    conteneur = FXMLLoader.load(getClass().getResource("../xml_design/inscription.fxml"));
+                } catch (IOException exc) {
+                    exc.printStackTrace();
                 }
 
 
-                Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());
-                Main.primaryStage.setScene(scene);
-                Main.primaryStage.show();
+                Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
+                Main.mainStage.setScene(scene);
+                Main.mainStage.show();
 
 
             }
