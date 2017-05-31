@@ -1,4 +1,4 @@
-package sample;
+package ZenEtude;
 
 import javafx.stage.Stage;
 
