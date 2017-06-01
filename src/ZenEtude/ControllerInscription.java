@@ -3,6 +3,8 @@ package ZenEtude;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import java.time.LocalDate;
@@ -18,6 +20,7 @@ public class ControllerInscription {
     @FXML  private TextField txtRepeatPassword;
     @FXML  private DatePicker dateBirthday;
     @FXML  private CheckBox checkAgree;
+    public  static Utilisateur user = null;
 
     final String pattern = "yyyy-MM-dd";
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
@@ -39,9 +42,9 @@ public class ControllerInscription {
                 @FXML
 
 
-
                 //Vérification des champs d'inscription
                 public void handle(ActionEvent event) {
+
                     if(!checkAgree.isSelected()){
                         Alerte uncheckedBox = new Alerte(Alert.AlertType.INFORMATION,
                                 true, "Conditions non accéptées",
@@ -71,16 +74,27 @@ public class ControllerInscription {
                                 "Veuillez vérifier la date de naissance que vous avez entré.");
 
                     }
+
+                    user = new Utilisateur(txtMail.getText(), txtPassword.getText());
+                    showMain();
+
+
                 }
             });
     }
 
+    private void showMain(){
+        Squelette squelette = new Squelette("Accueil", Main.mainStage);
+        Parent root = squelette.loadFXML("../xml_design/accueil.fxml");
+
+        Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());
+
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
      public String localDateToString(LocalDate date) {
-        if (date != null) {
             return dateFormatter.format(date);
-        } else {
-            return "";
-        }
+
     }
 
 }

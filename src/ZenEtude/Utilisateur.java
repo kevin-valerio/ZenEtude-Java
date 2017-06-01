@@ -1,15 +1,27 @@
 package ZenEtude;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+public class Utilisateur {
 
-public class ControllerAbsenceNote {
+    private static boolean ISCONNECTED = false;
+    private static String password;
+    private static String mail;
 
-private static boolean ISCONNECTED = false;
+    public Utilisateur(final String mail, final String password){
+        this.mail = mail;
+        this.password = password;
+
+    }
+
+    public void setIsConnected(final boolean value){
+        this.ISCONNECTED = value;
+    }
+
+    public String getMail() {
+        return mail;
+    }
 
 
+    public String getPassword() {
+        return password;
+    }
 }

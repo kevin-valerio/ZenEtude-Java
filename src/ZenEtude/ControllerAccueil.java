@@ -5,14 +5,17 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 
+import static ZenEtude.ControllerInscription.*;
+import static javafx.scene.control.Alert.AlertType.*;
 public class ControllerAccueil {
+
+
+
     @FXML
     private Hyperlink mdpOublie;
     @FXML
@@ -22,16 +25,18 @@ public class ControllerAccueil {
     @FXML
     private TextField txtMail;
     @FXML
+    private TextField txtPassword;
+    @FXML
     private void initialize() {
 
         mdpOublie.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Prompt askForMail = new Prompt(Alert.AlertType.INFORMATION, true, "Veuillez rentrer votre adresse mail","Adresse mail :","Un mail vous sera envoyé", "prenom.nom@etu.univ-amu.fr");
+                Prompt askForMail = new Prompt(INFORMATION, true, "Veuillez rentrer votre adresse mail","Adresse mail :","Un mail vous sera envoyé", "prenom.nom@etu.univ-amu.fr");
                 String mail = askForMail.getResponse();
-                if(ControllerInscription.isMailValid(mail)){
+                if(isMailValid(mail)){
                     Alerte mailEnvoye = new Alerte(
-                            Alert.AlertType.CONFIRMATION,
+                            CONFIRMATION,
                             true,
                             "Un mail vous a été envoyé !",
                             "Veuillez vérifier votre boite mail",
@@ -40,13 +45,14 @@ public class ControllerAccueil {
                 }
                 else{
                     Alerte errorMail = new Alerte(
-                            Alert.AlertType.ERROR,
+                            ERROR,
                             true,
                             "L'adresse rentrée n'est pas valide",
                             "Veuillez vérifier l'adresse que vous avez rentrée",
                             null
                     );
                 }
+
             }
 
         });
@@ -75,21 +81,29 @@ public class ControllerAccueil {
          @FXML
          public void handle(ActionEvent event) {
 
-             if (ControllerInscription.isMailValid(txtMail.getText())) {
+             if (isMailValid(txtMail.getText())) {
 
-                 //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
-                 Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
 
-                 Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
+                 if (user.getPassword().equals(txtPassword.getText()) && user.getMail().equals(txtMail.getText())) {
 
-                 Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
-                 Main.mainStage.setScene(scene);
+                     //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
+                     Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
+
+                     Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
+
+                     Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
+                     Main.mainStage.setScene(scene);
+                 }
              }
+
              else{
-                 Alerte mailNonValide = new Alerte(Alert.AlertType.INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
+                 Alerte mailNonValide = new Alerte(INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
              }
          }
+
      });
+
+
 
     }
 
