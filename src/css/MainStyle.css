@@ -16,3 +16,33 @@
     -fx-background-insets: 0, 0;
     -fx-padding: 0;
 }
+
+Button{
+    -fx-background-color:
+            #34394f,
+            linear-gradient(#38424b 0%, #36484d 20%, #273338 100%),
+            linear-gradient(#394d52, #273338),
+            radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 15px;
+    -fx-padding: 10 20 10 20;
+}
+Button Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
+
+}
+
+Button:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #7488ad 0%, #7dada8 100%),
+            #5ea7ad,
+            #a8a5ad,
+            radial-gradient(center 50% 50%, radius 100%, #a895ad, #5d4cad);
+    -fx-font-size: 16px;
+
+}

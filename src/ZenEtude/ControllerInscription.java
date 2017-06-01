@@ -5,6 +5,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,11 +19,16 @@ public class ControllerInscription {
     @FXML  private DatePicker dateBirthday;
     @FXML  private CheckBox checkAgree;
 
+    final String pattern = "yyyy-MM-dd";
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
 
-    private boolean isMailValid(String mail){
+
+    public  static boolean isMailValid(String mail){
+        //Utilisation des REGEX pour valider l'adresse mail
         Pattern MAIL_VALID = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = MAIL_VALID .matcher(mail);
         return matcher.find();
+
     }
 
     @FXML
@@ -30,6 +37,8 @@ public class ControllerInscription {
             btnRegister.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 @FXML
+
+
 
                 //Vérification des champs d'inscription
                 public void handle(ActionEvent event) {
@@ -40,7 +49,7 @@ public class ControllerInscription {
                                 "Veuillez lire les conditions et les accépter par la suite.");
                     }
 
-                    if(txtPassword.getText() != txtRepeatPassword.getText()){
+                    if(!txtPassword.getText().equals(txtRepeatPassword.getText())){
                         Alerte passwordDontMatch = new Alerte(Alert.AlertType.INFORMATION,
                                 true, "Mot de passe différents",
                                 "Vos mots de passe ne sont pas identiques.",
@@ -55,8 +64,7 @@ public class ControllerInscription {
                                 "Veuillez réentrer votre adresse mail");
 
                     }
-
-                    if(dateBirthday.getValue().toString() == null){
+                     if(localDateToString(dateBirthday.getValue()).equals("")){
                         Alerte falseMail = new Alerte(Alert.AlertType.INFORMATION,
                                 true, "Date de naissance invalide",
                                 "La date est soit vide, soit invalide",
@@ -65,6 +73,14 @@ public class ControllerInscription {
                     }
                 }
             });
+    }
+
+     public String localDateToString(LocalDate date) {
+        if (date != null) {
+            return dateFormatter.format(date);
+        } else {
+            return "";
+        }
     }
 
 }

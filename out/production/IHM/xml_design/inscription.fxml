@@ -46,35 +46,35 @@
       </BorderPane>
       <BorderPane prefHeight="636.0" prefWidth="1659.0" style="-fx-background-color: #F3EAC5;">
          <center>
-            <Pane prefHeight="634.0" prefWidth="682.0" BorderPane.alignment="CENTER">
+            <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1659.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="480.0" layoutY="25.0" prefHeight="552.0" prefWidth="712.0" style="-fx-background-color: white;">
+                  <Pane layoutX="453.0" layoutY="58.0" prefHeight="552.0" prefWidth="712.0" style="-fx-background-color: white;">
                      <children>
                         <Label layoutX="98.0" layoutY="39.0" prefHeight="71.0" prefWidth="655.0" text="Inscription à Zen'Etude" textFill="#686868">
                            <font>
                               <Font size="49.0" />
                            </font>
                         </Label>
-                        <TextField id="txtMail" fx:id="txtMail"  layoutX="160.0" layoutY="161.0" prefHeight="36.0" prefWidth="428.0" promptText="prenom.nom@mymail.com" />
+                        <TextField id="txtMail" fx:id="txtMail" layoutX="160.0" layoutY="161.0" prefHeight="36.0" prefWidth="428.0" promptText="prenom.nom@mymail.com" />
                         <TextField id="txtPassword" fx:id="txtPassword" layoutX="160.0" layoutY="237.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
-                        <Button id="btnRegister" fx:id="btnRegister" layoutX="264.0" layoutY="457.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="213.0" text="S'enregistrer">
+                        <Button id="btnRegister" fx:id="btnRegister" layoutX="264.0" layoutY="464.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="213.0" text="S'enregistrer">
                            <font>
                               <Font name="Gill Sans MT" size="26.0" />
                            </font></Button>
-                        <TextField  id="txtRepeatPassword" fx:id="txtRepeatPassword"  layoutX="162.0" layoutY="308.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
+                        <TextField id="txtRepeatPassword" fx:id="txtRepeatPassword" layoutX="162.0" layoutY="308.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
                         <Label layoutX="161.0" layoutY="142.0" text="Adresse mail" />
                         <Label layoutX="162.0" layoutY="217.0" text="Mot de passe" />
                         <Label layoutX="162.0" layoutY="284.0" text="Validation du mot de passe" />
-                        <DatePicker  id="dateBirthday" fx:id="dateBirthday"  layoutX="163.0" layoutY="379.0" prefHeight="25.0" prefWidth="429.0" promptText="01/02/2003" />
+                        <DatePicker id="dateBirthday" fx:id="dateBirthday" layoutX="163.0" layoutY="379.0" prefHeight="25.0" prefWidth="429.0" promptText="01/02/2003" />
                         <Label layoutX="164.0" layoutY="355.0" text="Date de naissance" />
-                        <CheckBox  id="checkAgree" fx:id="checkAgree"  layoutX="163.0" layoutY="422.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="331.0" text="J'ai accepté les conditions d'utilisation" />
+                        <CheckBox id="checkAgree" fx:id="checkAgree" layoutX="164.0" layoutY="426.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="331.0" text="J'ai accepté les conditions d'utilisation" />
                      </children>
                   </Pane>
                </children>
             </Pane>
          </center>
       </BorderPane>
-      <BorderPane prefHeight="168.0" prefWidth="1659.0" style="-fx-background-color: #7BBA88;">
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="1659.0" style="-fx-background-color: #7BBA88;">
          <center>
             <Label fx:id="labelFooter" text="Copyright Zen'Etude - 2017 - IUT Aix-en-Provence" BorderPane.alignment="CENTER">
                <font>

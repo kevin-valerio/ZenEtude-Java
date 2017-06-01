@@ -10,6 +10,7 @@ public class Alerte extends Alert {
         super(alertType);
 
         Alert alert = new Alert(alertType);
+
         alert.setTitle(title);
         alert.setHeaderText(headerText);
         alert.setContentText(mainContent);

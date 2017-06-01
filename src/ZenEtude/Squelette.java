@@ -1,6 +1,12 @@
 package ZenEtude;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+
+//Cette classe manipule des Stage et des Parent afin de leur définir des propriétés graphiques
 
 public class Squelette   {
     private  int pWidth = 1660;
@@ -26,5 +32,15 @@ public class Squelette   {
         leStage.setMinWidth(pMinWidth);
         leStage.setTitle(pTitle);
 
+    }
+
+    public Parent loadFXML(String FXMLpath){
+        Parent conteneur = null;
+        try {
+            conteneur =  FXMLLoader.load(getClass().getResource(FXMLpath));
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+        return conteneur;
     }
 }
