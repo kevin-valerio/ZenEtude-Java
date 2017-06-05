@@ -2,6 +2,7 @@ package ZenEtude;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,6 +32,8 @@ public class Squelette   {
         leStage.setMinHeight(pMinHeight);
         leStage.setMinWidth(pMinWidth);
         leStage.setTitle(pTitle);
+
+        leStage.getIcons().add(new Image("img/logo.png"));
 
     }
 
