@@ -29,30 +29,26 @@ public class ControllerAccueil {
     @FXML
     private void initialize() {
 
-        mdpOublie.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Prompt askForMail = new Prompt(INFORMATION, true, "Veuillez rentrer votre adresse mail","Adresse mail :","Un mail vous sera envoyé", "prenom.nom@etu.univ-amu.fr");
-                String mail = askForMail.getResponse();
-                if(isMailValid(mail)){
-                    Alerte mailEnvoye = new Alerte(
-                            CONFIRMATION,
-                            true,
-                            "Un mail vous a été envoyé !",
-                            "Veuillez vérifier votre boite mail",
-                            "Un lien de redirection vous sera envoyé"
-                    );
-                }
-                else{
-                    Alerte errorMail = new Alerte(
-                            ERROR,
-                            true,
-                            "L'adresse rentrée n'est pas valide",
-                            "Veuillez vérifier l'adresse que vous avez rentrée",
-                            null
-                    );
-                }
-
+        mdpOublie.setOnAction(event -> {
+            Prompt askForMail = new Prompt(INFORMATION, true, "Veuillez rentrer votre adresse mail","Adresse mail :","Un mail vous sera envoyé", "prenom.nom@etu.univ-amu.fr");
+            String mail = askForMail.getResponse();
+            if(isMailValid(mail)){
+                Alerte mailEnvoye = new Alerte(
+                        CONFIRMATION,
+                        true,
+                        "Un mail vous a été envoyé !",
+                        "Veuillez vérifier votre boite mail",
+                        "Un lien de redirection vous sera envoyé"
+                );
+            }
+            else{
+                Alerte errorMail = new Alerte(
+                        ERROR,
+                        true,
+                        "L'adresse rentrée n'est pas valide",
+                        "Veuillez vérifier l'adresse que vous avez rentrée",
+                        null
+                );
             }
 
         });
@@ -83,11 +79,8 @@ public class ControllerAccueil {
 
              if (isMailValid(txtMail.getText())) {
 
-                 /*
-                    Todo :  Créer une fonction qui gère le match des logs
 
-                  */
-                 if (user.getPassword().equals(txtPassword.getText()) && user.getMail().equals(txtMail.getText())) {
+                 if(user.isAuthorizedConnexion(txtPassword.getText(), txtPassword.getText())){
 
                      //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
                      Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
@@ -98,7 +91,7 @@ public class ControllerAccueil {
                      Main.mainStage.setScene(scene);
                  }
                  else{
-                     // Todo : gérer si log pas bon
+                     Alerte connexionUnautorized = new Alerte(ERROR, true, "Compte inaccessible !", "Le mail ou le mot de passe rentré n'est pas valide", "Veuillez rentrer des identifiants valides");
                  }
              }
 

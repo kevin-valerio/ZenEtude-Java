@@ -3,9 +3,9 @@ package ZenEtude;
 import javafx.beans.NamedArg;
 import javafx.scene.control.Alert;
 
-public class Alerte extends Alert {
+class Alerte extends Alert {
 
-    public Alerte(@NamedArg("alertType") AlertType alertType, boolean show, String title, String headerText, String mainContent) {
+    Alerte(@NamedArg("alertType") AlertType alertType, boolean show, String title, String headerText, String mainContent) {
 
         super(alertType);
         Alert alert = new Alert(alertType);

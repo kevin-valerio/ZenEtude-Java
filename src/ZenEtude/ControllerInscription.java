@@ -20,7 +20,7 @@ public class ControllerInscription {
     @FXML  private TextField txtRepeatPassword;
     @FXML  private DatePicker dateBirthday;
     @FXML  private CheckBox checkAgree;
-    public  static Utilisateur user = null;
+    static Utilisateur user = null;
 
     final String pattern = "yyyy-MM-dd";
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);

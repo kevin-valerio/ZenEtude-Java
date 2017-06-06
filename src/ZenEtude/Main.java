@@ -7,11 +7,11 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
-    public static Stage mainStage;
+    static Stage mainStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.mainStage = primaryStage;
+        mainStage = primaryStage;
 
         //Creation de la page (grâce au squelette)
         Squelette squelette = new Squelette("Accueil", primaryStage);

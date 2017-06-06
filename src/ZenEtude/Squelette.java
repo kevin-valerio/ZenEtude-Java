@@ -17,15 +17,15 @@ public class Squelette   {
 
     private String pTitle;
 
-    public int getpHeight(){
+    int getpHeight(){
         return pWidth;
     }
-    public int getpWidth() {
+    int getpWidth() {
         return pHeight;
     }
 
 
-    public Squelette(String titrePage, Stage leStage) {
+    Squelette(String titrePage, Stage leStage) {
 
         pTitle = "Zen'Etude - " + titrePage;
 
@@ -37,7 +37,7 @@ public class Squelette   {
         leStage.setMinWidth(pMinWidth);
     }
 
-    public Parent loadFXML(String FXMLpath){
+    Parent loadFXML(String FXMLpath){
         Parent conteneur = null;
         try {
             conteneur =  FXMLLoader.load(getClass().getResource(FXMLpath));

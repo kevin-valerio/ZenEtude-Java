@@ -20,11 +20,9 @@ public class Prompt {
 
         result = dialog.showAndWait();
         if (!result.isPresent()){
-            Alerte noMail = new Alerte(Alert.AlertType.ERROR, true, "Aucun mail !", "Aucun mail n'est détecté", "Vous n'avez rentré aucune adresse");
+            Alerte noMail = new Alerte(Alert.AlertType.ERROR, true, "Aucune réponse !", "Aucune réponse n'est détectée", "Vous n'avez rentré aucune réponse");
         }
     }
-
-
 
 
     public String getResponse(){
