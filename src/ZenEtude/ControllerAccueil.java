@@ -83,7 +83,10 @@ public class ControllerAccueil {
 
              if (isMailValid(txtMail.getText())) {
 
+                 /*
+                    Todo :  Créer une fonction qui gère le match des logs
 
+                  */
                  if (user.getPassword().equals(txtPassword.getText()) && user.getMail().equals(txtMail.getText())) {
 
                      //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
@@ -93,6 +96,9 @@ public class ControllerAccueil {
 
                      Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
                      Main.mainStage.setScene(scene);
+                 }
+                 else{
+                     // Todo : gérer si log pas bon
                  }
              }
 
