@@ -29,20 +29,20 @@ public class Squelette   {
 
         pTitle = "Zen'Etude - " + titrePage;
 
-        leStage.setMinHeight(pMinHeight);
-        leStage.setMinWidth(pMinWidth);
         leStage.setTitle(pTitle);
-
         leStage.getIcons().add(new Image("img/logo.png"));
 
+        leStage.setMinHeight(pMinHeight);
+
+        leStage.setMinWidth(pMinWidth);
     }
 
     public Parent loadFXML(String FXMLpath){
         Parent conteneur = null;
         try {
             conteneur =  FXMLLoader.load(getClass().getResource(FXMLpath));
-        } catch (IOException exc) {
-            exc.printStackTrace();
+        } catch (IOException exce) {
+            exce.printStackTrace();
         }
         return conteneur;
     }

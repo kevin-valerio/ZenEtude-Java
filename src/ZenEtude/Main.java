@@ -16,12 +16,15 @@ public class Main extends Application {
 
         //Creation de la page (grâce au squelette)
         Squelette squelette = new Squelette("Accueil", primaryStage);
+
         Parent root = squelette.loadFXML("../xml_design/accueil.fxml");
 
         Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());
 
         primaryStage.setScene(scene);
+
         primaryStage.show();
+
         // Fin création page
 
     }

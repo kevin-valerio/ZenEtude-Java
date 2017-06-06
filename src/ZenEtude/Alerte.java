@@ -12,6 +12,7 @@ public class Alerte extends Alert {
         Alert alert = new Alert(alertType);
 
         alert.setTitle(title);
+
         alert.setHeaderText(headerText);
         alert.setContentText(mainContent);
         if (show) {
