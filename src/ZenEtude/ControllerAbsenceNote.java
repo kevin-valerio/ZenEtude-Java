@@ -11,11 +11,17 @@ import javafx.scene.control.Label;
 import static ZenEtude.ControllerInscription.*;
 
 public class ControllerAbsenceNote {
-    @FXML private Label pseudoLabel;
+
+    @FXML
+    private Label pseudoLabel;
+
     @FXML
     private void initialize(){
 
         pseudoLabel.setText(user.getMail());
 
     }
+    // TODO : Ajout de valeurs random dans le tableau matière & note
+
+
 }
