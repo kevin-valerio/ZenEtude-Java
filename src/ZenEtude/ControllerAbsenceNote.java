@@ -21,7 +21,5 @@ public class ControllerAbsenceNote {
         pseudoLabel.setText(user.getMail());
 
     }
-    // TODO : Ajout de valeurs random dans le tableau matière & note
-
-
+    // TODO : Ajout de valeurs random dans le tableau ( matière & note )
 }
