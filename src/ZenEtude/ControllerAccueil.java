@@ -9,8 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 
-
-import static ZenEtude.ControllerInscription.*;
+import static ZenEtude.ControllerInscription.isMailValid;
+import static ZenEtude.ControllerInscription.user;
 import static javafx.scene.control.Alert.AlertType.*;
 public class ControllerAccueil {
 
@@ -79,8 +79,8 @@ public class ControllerAccueil {
 
              if (isMailValid(txtMail.getText())) {
 
-
-                 if(user.isAuthorizedConnexion(txtPassword.getText(), txtPassword.getText())){
+                 //Si l'user est enregistré
+                 if(user.isAuthorizedConnexion(txtMail.getText(), txtPassword.getText())){
 
                      //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
                      Squelette squelette = new Squelette("Notes et absences", Main.mainStage);

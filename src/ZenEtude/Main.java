@@ -11,9 +11,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         mainStage = primaryStage;
 
         //Creation de la page (grâce au squelette)
+
         Squelette squelette = new Squelette("Accueil", primaryStage);
         Parent root = squelette.loadFXML("../xml_design/accueil.fxml");
         Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());

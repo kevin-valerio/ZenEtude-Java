@@ -45,41 +45,46 @@ public class ControllerInscription {
                 //Vérification des champs d'inscription
                 public void handle(ActionEvent event) {
 
-                    if(!checkAgree.isSelected()){
-                        Alerte uncheckedBox = new Alerte(Alert.AlertType.INFORMATION,
-                                true, "Conditions non accéptées",
-                                "Vous n'avez pas accepté les conditions !",
-                                "Veuillez lire les conditions et les accépter par la suite.");
+                         if (!checkAgree.isSelected()) {
+                            Alerte uncheckedBox = new Alerte(Alert.AlertType.INFORMATION,
+                                    true, "Conditions non accéptées",
+                                    "Vous n'avez pas accepté les conditions !",
+                                    "Veuillez lire les conditions et les accépter par la suite.");
+                             return;
+
+                        }
+
+                        if (!txtPassword.getText().equals(txtRepeatPassword.getText())) {
+                            Alerte passwordDontMatch = new Alerte(Alert.AlertType.INFORMATION,
+                                    true, "Mot de passe différents",
+                                    "Vos mots de passe ne sont pas identiques.",
+                                    "Veuillez réentrer vos mots de passe");
+                            return;
+                        }
+
+                        if (!isMailValid(txtMail.getText())) {
+                            Alerte falseMail = new Alerte(Alert.AlertType.INFORMATION,
+                                    true, "Votre adresse mail n'est pas valide",
+                                    "L'adresse rentrée n'est pas une bonne adresse",
+                                    "Veuillez réentrer votre adresse mail");
+                            return;
+
+                        }
+                        if (localDateToString(dateBirthday.getValue()).equals("")) {
+                            Alerte falseMail = new Alerte(Alert.AlertType.INFORMATION,
+                                    true, "Date de naissance invalide",
+                                    "La date est soit vide, soit invalide",
+                                    "Veuillez vérifier la date de naissance que vous avez entré.");
+                            return;
+
+                        }
+
+                        user = new Utilisateur(txtMail.getText(), txtPassword.getText(), dateBirthday.getValue());
+                        showMain();
+
+
                     }
 
-                    if(!txtPassword.getText().equals(txtRepeatPassword.getText())){
-                        Alerte passwordDontMatch = new Alerte(Alert.AlertType.INFORMATION,
-                                true, "Mot de passe différents",
-                                "Vos mots de passe ne sont pas identiques.",
-                                "Veuillez réentrer vos mots de passe");
-
-                    }
-
-                    if(!isMailValid(txtMail.getText())){
-                        Alerte falseMail = new Alerte(Alert.AlertType.INFORMATION,
-                                true, "Votre adresse mail n'est pas valide",
-                                "L'adresse rentrée n'est pas une bonne adresse",
-                                "Veuillez réentrer votre adresse mail");
-
-                    }
-                     if(localDateToString(dateBirthday.getValue()).equals("")){
-                        Alerte falseMail = new Alerte(Alert.AlertType.INFORMATION,
-                                true, "Date de naissance invalide",
-                                "La date est soit vide, soit invalide",
-                                "Veuillez vérifier la date de naissance que vous avez entré.");
-
-                    }
-
-                    user = new Utilisateur(txtMail.getText(), txtPassword.getText());
-                    showMain();
-
-
-                }
             });
     }
 
