@@ -15,20 +15,13 @@ import static ZenEtude.ControllerInscription.user;
 @SuppressWarnings("deprecation")
 public class ControllerAbsenceNote {
 
-    // Table notes et absences
-    @FXML private TableView<Note> tableNotes;
-  //  @FXML private TableView<Note> tableAbsence;
+     @FXML private TableView<Note> tableNotes;
 
-    //Ci-dessous : colonnes pour la table Note
     @FXML private TableColumn<Note, String> matiereColumn;
     @FXML private TableColumn<Note, Integer> noteColumn;
     @FXML private TableColumn<Note, Integer> coeffColumn;
     @FXML private TableColumn<Note, Date> dateColumn;
 
-    //Ci-dessous : colonnes pour la table Absence
-   /* @FXML private TableColumn<Note, String> matiereAbsenceColumn;
-    @FXML private TableColumn<Note, String> motifAbsenceColumn;
-    @FXML private TableColumn<Note, Date> dateAbsenceColumn; */
     @FXML private Label pseudoLabel;
 
     private final ObservableList<Note> NoteArray =
@@ -39,34 +32,15 @@ public class ControllerAbsenceNote {
                     new Note("Mathématiques", 14 , 4,new Date(2017, 10, 22)),
                     new Note("EPS", 11, 1,new Date(2017, 11, 13))
             );
-                /*
-                      NoteArray : Liste de notes. Ici on ajoute des valeurs aléatoires,
-                      mais normalement elle se remplie en fonction de l'utilisateur et de ses réelles notes
-                */
-
-
- /*
-
-                      AbsenceArray : Liste d'absences. Ici on ajoute des valeurs aléatoires,
-                      mais normalement elle se remplie en fonction de l'utilisateur et de ses réelles absences
-                */
 
 
     @FXML
-
-    private void initialize(){
+    private void initialize() {
 
         pseudoLabel.setText(user.getMail());
-        addRandomNotes();
+        matiereColumn.setCellValueFactory(new PropertyValueFactory<Note, String>("Matiere"));
+
+
+        tableNotes.getItems().setAll(NoteArray);
     }
-
-    private void addRandomAbsences(){
-
-    }
-
-
-    private void addRandomNotes(){
-
-
-     }
 }

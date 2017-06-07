@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
+
 <VBox prefHeight="938.0" prefWidth="1659.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ZenEtude.ControllerAbsenceNote">
    <children>
       <BorderPane prefHeight="139.0" prefWidth="1659.0" style="-fx-background-color: white;">
@@ -63,12 +71,14 @@
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="1272.0" style="-fx-background-color: #d2e2f1;">
                                        <children>
-                                          <TableView id="tableNotes" fx:id="tableNotes" layoutX="73.0" layoutY="47.0" prefHeight="419.0" prefWidth="1307.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView id="tableNotes" fx:id="tableNotes" editable="true" layoutX="73.0" layoutY="47.0" prefHeight="419.0" prefWidth="1307.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                               <TableColumn id="matiereColumn" fx:id="matiereColumn" prefWidth="346.33331298828125" text="Matière" />
+
                                               <TableColumn id="noteColumn" fx:id="noteColumn" prefWidth="241.66668701171875" text="Note" />
                                               <TableColumn id="coeffColumn" fx:id="coeffColumn" prefWidth="377.333251953125" text="Coefficient" />
                                               <TableColumn id="dateColumn" fx:id="dateColumn" prefWidth="413.666748046875" text="Date" />
+
                                             </columns>
                                           </TableView>
                                        </children></AnchorPane>
