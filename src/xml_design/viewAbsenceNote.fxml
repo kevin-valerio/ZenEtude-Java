@@ -67,7 +67,7 @@
                         </Label>
                         <TabPane layoutX="39.0" layoutY="110.0" prefHeight="448.0" prefWidth="1307.0" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
-                            <Tab id="tabNotes" fx:id="tabNotes" text="Mes notes">
+                            <Tab text="Mes notes">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="1272.0" style="-fx-background-color: #d2e2f1;">
                                        <children>
@@ -81,7 +81,8 @@
 
                                             </columns>
                                           </TableView>
-                                       </children></AnchorPane>
+                                       </children>
+                                </AnchorPane>
                               </content>
                             </Tab>
                             <Tab text="Mes absences">
