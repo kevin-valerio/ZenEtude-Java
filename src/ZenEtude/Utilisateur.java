@@ -1,30 +1,34 @@
 package ZenEtude;
 
+import javafx.scene.image.Image;
+
 import java.time.LocalDate;
 
 import static ZenEtude.ControllerAccueil.*;
 
 class Utilisateur {
 
-    private static String password;
-    private static String mail;
-    private static LocalDate birthday;
-    private static Boolean isProf;
+    private String password;
+    private String mail;
+    private LocalDate birthday;
+    private Boolean isProf;
+    private Image myAvatar;
 
 
-    public Utilisateur(final String mail, final String password, final LocalDate birthday){
-        Utilisateur.mail = mail;
-        Utilisateur.password = password;
-        Utilisateur.birthday = birthday;
+    Utilisateur(final String mail, final String password, final LocalDate birthday){
+
+        this.mail = mail;
+        this.password = password;
+        this.birthday = birthday;
 
     }
 
-    public static Boolean getIsProf() {
+    public Boolean getIsProf() {
         return isProf;
     }
 
-    public static void setIsProf(Boolean isProf) {
-        Utilisateur.isProf = isProf;
+    public void setIsProf(Boolean isProf) {
+        this.isProf = isProf;
     }
 
     public String getMail() {
@@ -45,11 +49,9 @@ class Utilisateur {
                &
                enteredPassword.equals(this.getPassword())
        );
-
-
     }
 
-
-
-
+    public void isProf(boolean selected) {
+        this.isProf = selected;
+    }
 }

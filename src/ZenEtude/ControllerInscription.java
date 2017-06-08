@@ -23,6 +23,8 @@ public class ControllerInscription {
     @FXML  private TextField txtRepeatPassword;
     @FXML  private DatePicker dateBirthday;
     @FXML  private CheckBox checkAgree;
+    @FXML  private CheckBox checkProf;
+
     private static Utilisateur user = null;
 
     final String pattern = "yyyy-MM-dd";
@@ -87,8 +89,9 @@ public class ControllerInscription {
                         }
 
                         user = new Utilisateur(txtMail.getText(), txtPassword.getText(), dateBirthday.getValue());
-                        showMain();
+                        user.isProf(checkProf.isSelected());
 
+                        showMain();
 
                     }
 

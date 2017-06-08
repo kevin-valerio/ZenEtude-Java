@@ -35,7 +35,7 @@
          <center>
             <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="1659.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane layoutX="453.0" layoutY="58.0" prefHeight="552.0" prefWidth="712.0" style="-fx-background-color: white;">
+                  <Pane layoutX="454.0" layoutY="57.0" prefHeight="552.0" prefWidth="712.0" style="-fx-background-color: white;">
                      <children>
                         <Label layoutX="98.0" layoutY="39.0" prefHeight="71.0" prefWidth="655.0" text="Inscription à Zen'Etude" textFill="#686868">
                            <font>
@@ -44,7 +44,7 @@
                         </Label>
                         <TextField id="txtMail" fx:id="txtMail" layoutX="160.0" layoutY="161.0" prefHeight="36.0" prefWidth="428.0" promptText="prenom.nom@mymail.com" />
                         <TextField id="txtPassword" fx:id="txtPassword" layoutX="160.0" layoutY="237.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
-                        <Button id="btnRegister" fx:id="btnRegister" layoutX="264.0" layoutY="464.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="213.0" text="S'enregistrer">
+                        <Button id="btnRegister" fx:id="btnRegister" layoutX="264.0" layoutY="481.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="213.0" text="S'enregistrer">
                            <font>
                               <Font name="Gill Sans MT" size="26.0" />
                            </font></Button>
@@ -54,7 +54,8 @@
                         <Label layoutX="162.0" layoutY="284.0" text="Validation du mot de passe" />
                         <DatePicker id="dateBirthday" fx:id="dateBirthday" layoutX="163.0" layoutY="379.0" prefHeight="25.0" prefWidth="429.0" promptText="01/02/2003" />
                         <Label layoutX="164.0" layoutY="355.0" text="Date de naissance" />
-                        <CheckBox id="checkAgree" fx:id="checkAgree" layoutX="164.0" layoutY="426.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="331.0" text="J'ai accepté les conditions d'utilisation" />
+                        <CheckBox id="checkAgree" fx:id="checkAgree" layoutX="162.0" layoutY="450.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="331.0" text="J'ai accepté les conditions d'utilisation" />
+                        <CheckBox id="checkProf" fx:id="checkProf" layoutX="163.0" layoutY="417.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="457.0" text="Je suis un professeur (des justificatifs vous seront demandés)" />
                      </children>
                   </Pane>
                </children>
