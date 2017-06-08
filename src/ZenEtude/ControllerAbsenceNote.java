@@ -2,12 +2,15 @@ package ZenEtude;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 import java.util.Date;
 
@@ -15,6 +18,10 @@ import static ZenEtude.ControllerInscription.user;
 
 @SuppressWarnings("deprecation")
 public class ControllerAbsenceNote {
+
+    // BorderPane du menu (déroulant et fixe)
+    @FXML private BorderPane menuList = new BorderPane();
+    @FXML private BorderPane menuDeroulant = new BorderPane();
 
     // Table notes et absences
 
@@ -78,6 +85,23 @@ public class ControllerAbsenceNote {
         initTable();
         addRandomAbsence();
         addRandomNotes();
+
+        // Gestion des events lors du click sur le menu (menuList)
+
+        menuList.setOnMouseClicked(event -> {
+            Menu menu = new Menu(menuList, menuDeroulant);
+            menu.afficherMenu();
+            menu.setColor("#eee4c2", menuDeroulant);
+            if(menuDeroulant.isVisible()){
+                menuList.setStyle("-fx-background-color: #eee4c2");
+            }
+            else{
+                menuList.setStyle("-fx-background-color: #f3f1ea");
+
+            }
+
+
+        });
 
 
     }

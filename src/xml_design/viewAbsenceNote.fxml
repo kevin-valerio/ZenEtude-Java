@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -27,14 +28,14 @@
          <right>
             <Pane prefHeight="129.0" prefWidth="648.0" style="-fx-background-color: #ffffff;;" BorderPane.alignment="CENTER">
                <children>
-                  <BorderPane layoutX="107.0" layoutY="-1.0" prefHeight="150.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
+                  <BorderPane id="menuList" fx:id="menuList" layoutX="107.0" layoutY="-1.0" prefHeight="150.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
                      <center>
                         <Label id="pseudoLabel" fx:id="pseudoLabel" prefHeight="150.0" prefWidth="519.0" text="monPseudo" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="34.0" />
                            </font>
                            <graphic>
-                              <ImageView fitHeight="150.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="129.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../img/logo.png" />
                                  </image>
@@ -42,6 +43,9 @@
                            </graphic>
                         </Label>
                      </center>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </BorderPane>
                </children>
             </Pane>
@@ -103,6 +107,13 @@
                         </TabPane>
                      </children>
                   </Pane>
+                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" prefHeight="333.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
+                     <top>
+                        <BorderPane prefHeight="76.0" prefWidth="549.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+                     </top>
+                     <center>
+                        <BorderPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="549.0" BorderPane.alignment="CENTER" />
+                     </center></BorderPane>
                </children>
             </Pane>
          </center>

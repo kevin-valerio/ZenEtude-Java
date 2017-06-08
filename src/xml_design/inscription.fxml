@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.Cursor?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
+
 <VBox prefHeight="938.0" prefWidth="1659.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ZenEtude.ControllerInscription">
    <children>
       <BorderPane prefHeight="139.0" prefWidth="1659.0" style="-fx-background-color: white;">
@@ -25,17 +30,6 @@
                </font>
             </Label>
          </center>
-         <right>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <center>
-                  <Rectangle accessibleRole="BUTTON" arcHeight="5.0" arcWidth="5.0" height="84.0" opacity="0.16" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="83.0" BorderPane.alignment="CENTER">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Rectangle>
-               </center>
-            </BorderPane>
-         </right>
       </BorderPane>
       <BorderPane prefHeight="636.0" prefWidth="1659.0" style="-fx-background-color: #F3EAC5;">
          <center>

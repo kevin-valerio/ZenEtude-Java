@@ -17,6 +17,7 @@
                </image>
             </ImageView>
          </left>
+
          <center>
             <Label text="Zen'Etude" BorderPane.alignment="CENTER">
                <font>

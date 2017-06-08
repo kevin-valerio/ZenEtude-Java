@@ -96,7 +96,7 @@ public class ControllerAccueil {
                                                    Alerte mailNonValide = new Alerte(INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
                                                }
                                            }
-                                           catch (java.lang.NullPointerException e) {
+                                           catch (NullPointerException e) {
                                                Alerte connexionUnautorized = new Alerte(ERROR, true, "Compte inaccessible !", "Le mail ou le mot de passe rentré n'est pas valide", "Veuillez rentrer des identifiants valides");
 
                                            }
