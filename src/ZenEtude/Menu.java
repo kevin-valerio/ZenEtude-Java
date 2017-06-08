@@ -16,8 +16,6 @@ class Menu {
 
     public void setColor(String couleur, BorderPane pane){
          pane.setStyle("-fx-background-color: " + couleur);
-
-
     }
 
     public BorderPane getMenuDeroulant() {
@@ -37,11 +35,17 @@ class Menu {
     }
 
     public void afficherMenu(){
+
+
         if(menuDeroulant.isVisible()){
             menuDeroulant.setVisible(false);
         }
         else{
             menuDeroulant.setVisible(true);
         }
+
+        //TODO : Ajouter un fade-in / fade-out
+
+
     }
 }
