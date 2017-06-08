@@ -2,6 +2,8 @@ package ZenEtude;
 
 import java.time.LocalDate;
 
+import static ZenEtude.ControllerAccueil.*;
+
 class Utilisateur {
 
     private static String password;
@@ -27,6 +29,10 @@ class Utilisateur {
 
     public String getMail() {
         return mail;
+    }
+
+    public void logout(){
+        showMain();
     }
 
     public String getPassword() {

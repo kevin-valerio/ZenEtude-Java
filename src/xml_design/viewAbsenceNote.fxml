@@ -107,15 +107,45 @@
                         </TabPane>
                      </children>
                   </Pane>
-                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" prefHeight="235.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;" visible="false">
+                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
                      <top>
-                        <BorderPane prefHeight="74.0" prefWidth="549.0" style="-fx-background-color: #f9f6dd;" BorderPane.alignment="CENTER" />
+                        <BorderPane fx:id="menuNoteAbsence" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: #f9f6dd;" BorderPane.alignment="CENTER">
+                           <center>
+                              <Label text="Notes et absences" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font size="37.0" />
+                                 </font>
+                              </Label>
+                           </center>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></BorderPane>
                      </top>
                      <center>
-                        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="76.0" prefWidth="549.0" style="-fx-background-color: #e0f9e2;" BorderPane.alignment="TOP_LEFT" />
+                        <BorderPane fx:id="menuProfil" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="94.0" prefWidth="549.0" style="-fx-background-color: #e0f9e2;" BorderPane.alignment="TOP_LEFT">
+                           <center>
+                              <Label text="Consulter mon profil" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                           </center>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></BorderPane>
                      </center>
                      <bottom>
-                        <BorderPane prefHeight="85.0" prefWidth="549.0" style="-fx-background-color: #f9f2f7;" BorderPane.alignment="CENTER" />
+                        <BorderPane fx:id="menuDeconnexion" prefHeight="85.0" prefWidth="549.0" style="-fx-background-color: #dae8f9;" BorderPane.alignment="CENTER">
+                           <center>
+                              <Label text="Se déconnecter" BorderPane.alignment="CENTER">
+                                 <font>
+                                    <Font size="37.0" />
+                                 </font>
+                              </Label>
+                           </center>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></BorderPane>
                      </bottom></BorderPane>
                </children>
             </Pane>

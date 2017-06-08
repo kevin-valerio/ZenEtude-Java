@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import static ZenEtude.ControllerAbsenceNote.*;
 import static ZenEtude.ControllerInscription.*;
 import static ZenEtude.ControllerInscription.isMailValid;
-import static ZenEtude.ControllerInscription.user;
+import static ZenEtude.Main.*;
 import static javafx.scene.control.Alert.AlertType.*;
 
 public class ControllerAccueil {
@@ -77,7 +77,7 @@ public class ControllerAccueil {
                                            //Si l'user est enregistré
                                            try {
 
-                                               if (user.isAuthorizedConnexion(txtMail.getText(), txtPassword.getText())) {
+                                               if (getUser().isAuthorizedConnexion(txtMail.getText(), txtPassword.getText())) {
 
                                                    //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
 
@@ -99,12 +99,12 @@ public class ControllerAccueil {
 
     }
     public static void showMain(){
-        Squelette squelette = new Squelette("Accueil", Main.mainStage);
+        Squelette squelette = new Squelette("Accueil", getMainStage());
         Parent root = squelette.loadFXML("../xml_design/accueil.fxml");
 
         Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());
 
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
+        getMainStage().setScene(scene);
+        getMainStage().show();
     }
 }

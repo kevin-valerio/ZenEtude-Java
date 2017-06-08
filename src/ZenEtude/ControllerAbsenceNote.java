@@ -2,21 +2,19 @@ package ZenEtude;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 import java.util.Date;
 
-import static ZenEtude.ControllerInscription.user;
+import static ZenEtude.ControllerInscription.getUser;
+import static ZenEtude.Main.*;
 
 @SuppressWarnings("deprecation")
 public class ControllerAbsenceNote {
@@ -24,7 +22,9 @@ public class ControllerAbsenceNote {
     // BorderPane du menu (déroulant et fixe)
     @FXML private BorderPane menuList = new BorderPane();
     @FXML private BorderPane menuDeroulant = new BorderPane();
-
+    @FXML private BorderPane menuDeconnexion;
+    @FXML private BorderPane menuNoteAbsence;
+    @FXML private BorderPane menuProfil;
     // Table notes et absences
 
     @FXML private TableView<Note> tableNotes = new TableView<Note>();
@@ -83,15 +83,16 @@ public class ControllerAbsenceNote {
     @FXML
     private void initialize() {
 
-        pseudoLabel.setText(user.getMail());
+        pseudoLabel.setText(getUser().getMail());
         initTable();
         addRandomAbsence();
         addRandomNotes();
 
         // Gestion des events lors du click sur le menu (menuList)
+        Menu menu = new Menu(menuList, menuDeroulant);
+        menu.addMenuButtons(menuDeconnexion, menuNoteAbsence, menuProfil);
 
         menuList.setOnMouseClicked(event -> {
-            Menu menu = new Menu(menuList, menuDeroulant);
             menu.afficherMenu();
             menu.setColor("#eee4c2", menuDeroulant);
             if(menuDeroulant.isVisible()){
@@ -105,15 +106,26 @@ public class ControllerAbsenceNote {
 
         });
 
+        menuDeconnexion.setOnMouseClicked(event -> {
+            menu.pressedLogoutBtn();
+        });
+        menuNoteAbsence.setOnMouseClicked(event -> {
+
+            menu.pressedNoteAbsenceBtn();
+        });
+        menuProfil.setOnMouseClicked(event -> {
+            menu.pressedProfilBtn();
+        });
+
 
     }
     public static void showAbsenceNote(){
-        Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
+        Squelette squelette = new Squelette("Notes et absences", getMainStage());
 
         Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
 
         Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
-        Main.mainStage.setScene(scene);
+        getMainStage().setScene(scene);
     }
 
     private void addRandomAbsence(){
@@ -124,6 +136,14 @@ public class ControllerAbsenceNote {
     private void addRandomNotes(){
         tableNotes.setItems(noteArray);
 
+    }
+
+    public BorderPane getMenuList() {
+        return menuList;
+    }
+
+    public BorderPane getMenuDeroulant() {
+        return menuDeroulant;
     }
 
     private void initTable(){
@@ -139,4 +159,6 @@ public class ControllerAbsenceNote {
 
 
     }
+
+
 }

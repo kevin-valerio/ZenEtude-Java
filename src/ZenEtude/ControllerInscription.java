@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static ZenEtude.ControllerAccueil.*;
+import static ZenEtude.Main.*;
 
 public class ControllerInscription {
 
@@ -22,7 +23,7 @@ public class ControllerInscription {
     @FXML  private TextField txtRepeatPassword;
     @FXML  private DatePicker dateBirthday;
     @FXML  private CheckBox checkAgree;
-    static Utilisateur user = null;
+    private static Utilisateur user = null;
 
     final String pattern = "yyyy-MM-dd";
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
@@ -34,6 +35,10 @@ public class ControllerInscription {
         Matcher matcher = MAIL_VALID .matcher(mail);
         return matcher.find();
 
+    }
+
+    public static Utilisateur getUser() {
+        return user;
     }
 
     @FXML
@@ -97,13 +102,13 @@ public class ControllerInscription {
     }
 
     public static void showInscription(){
-        Squelette squelette = new Squelette("Inscription", Main.mainStage);
+        Squelette squelette = new Squelette("Inscription", getMainStage());
 
 
         Parent conteneur = squelette.loadFXML("../xml_design/inscription.fxml");
 
         Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
-        Main.mainStage.setScene(scene);
+        getMainStage().setScene(scene);
 
     }
 
