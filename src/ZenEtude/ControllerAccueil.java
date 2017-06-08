@@ -12,8 +12,8 @@ import javafx.scene.control.TextField;
 import static ZenEtude.ControllerInscription.isMailValid;
 import static ZenEtude.ControllerInscription.user;
 import static javafx.scene.control.Alert.AlertType.*;
-public class ControllerAccueil {
 
+public class ControllerAccueil {
 
 
     @FXML
@@ -26,13 +26,14 @@ public class ControllerAccueil {
     private TextField txtMail;
     @FXML
     private TextField txtPassword;
+
     @FXML
     private void initialize() {
 
         mdpOublie.setOnAction(event -> {
-            Prompt askForMail = new Prompt(INFORMATION, true, "Veuillez rentrer votre adresse mail","Adresse mail :","Un mail vous sera envoyé", "prenom.nom@etu.univ-amu.fr");
+            Prompt askForMail = new Prompt(INFORMATION, true, "Veuillez rentrer votre adresse mail", "Adresse mail :", "Un mail vous sera envoyé", "prenom.nom@etu.univ-amu.fr");
             String mail = askForMail.getResponse();
-            if(isMailValid(mail)){
+            if (isMailValid(mail)) {
                 Alerte mailEnvoye = new Alerte(
                         CONFIRMATION,
                         true,
@@ -40,8 +41,7 @@ public class ControllerAccueil {
                         "Veuillez vérifier votre boite mail",
                         "Un lien de redirection vous sera envoyé"
                 );
-            }
-            else{
+            } else {
                 Alerte errorMail = new Alerte(
                         ERROR,
                         true,
@@ -54,7 +54,7 @@ public class ControllerAccueil {
         });
 
 
-     btnInscrire.setOnAction(new EventHandler<ActionEvent>() {
+        btnInscrire.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             @FXML
             public void handle(ActionEvent event) {
@@ -72,36 +72,38 @@ public class ControllerAccueil {
             }
         });
 
-     btnConnect.setOnAction(new EventHandler<ActionEvent>() {
-         @Override
-         @FXML
-         public void handle(ActionEvent event) {
+        btnConnect.setOnAction(new EventHandler<ActionEvent>() {
+                                   @Override
+                                   @FXML
+                                   public void handle(ActionEvent event) {
 
-             if (isMailValid(txtMail.getText())) {
+                                       if (isMailValid(txtMail.getText())) {
 
-                 //Si l'user est enregistré
-                 if(user.isAuthorizedConnexion(txtMail.getText(), txtPassword.getText())){
+                                           //Si l'user est enregistré
+                                           try {
 
-                     //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
-                     Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
+                                               if (user.isAuthorizedConnexion(txtMail.getText(), txtPassword.getText())) {
 
-                     Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
+                                                   //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
+                                                   Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
 
-                     Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
-                     Main.mainStage.setScene(scene);
-                 }
-                 else{
-                     Alerte connexionUnautorized = new Alerte(ERROR, true, "Compte inaccessible !", "Le mail ou le mot de passe rentré n'est pas valide", "Veuillez rentrer des identifiants valides");
-                 }
-             }
+                                                   Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
 
-             else{
-                 Alerte mailNonValide = new Alerte(INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
-             }
-         }
+                                                   Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
+                                                   Main.mainStage.setScene(scene);
+                                               }
+                                               else {
+                                                   Alerte mailNonValide = new Alerte(INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
+                                               }
+                                           }
+                                           catch (java.lang.NullPointerException e) {
+                                               Alerte connexionUnautorized = new Alerte(ERROR, true, "Compte inaccessible !", "Le mail ou le mot de passe rentré n'est pas valide", "Veuillez rentrer des identifiants valides");
 
-     });
-
+                                           }
+                                       }
+                                   }
+                               }
+        );
 
 
     }

@@ -95,8 +95,8 @@ public class ControllerAbsenceNote {
     private void initTable(){
 
         matiereColumn.setCellValueFactory(new PropertyValueFactory<Note, String>("matiere"));
-        coeffColumn.setCellValueFactory(new PropertyValueFactory<Note, Integer>("note"));
-        noteColumn.setCellValueFactory(new PropertyValueFactory<Note, Integer>("coeff"));
+        noteColumn.setCellValueFactory(new PropertyValueFactory<Note, Integer>("note"));
+        coeffColumn.setCellValueFactory(new PropertyValueFactory<Note, Integer>("coeff"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Note, Date>("date"));
 
         dateAbsenceColumn.setCellValueFactory(new PropertyValueFactory<Absence, Date>("date"));

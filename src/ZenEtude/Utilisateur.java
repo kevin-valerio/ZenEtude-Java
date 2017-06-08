@@ -7,7 +7,7 @@ class Utilisateur {
     private static String password;
     private static String mail;
     private static LocalDate birthday;
-
+    private static Boolean isProf;
 
 
     public Utilisateur(final String mail, final String password, final LocalDate birthday){
@@ -17,6 +17,13 @@ class Utilisateur {
 
     }
 
+    public static Boolean getIsProf() {
+        return isProf;
+    }
+
+    public static void setIsProf(Boolean isProf) {
+        Utilisateur.isProf = isProf;
+    }
 
     public String getMail() {
         return mail;
