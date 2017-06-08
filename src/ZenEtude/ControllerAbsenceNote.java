@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -104,6 +106,14 @@ public class ControllerAbsenceNote {
         });
 
 
+    }
+    public static void showAbsenceNote(){
+        Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
+
+        Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
+
+        Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
+        Main.mainStage.setScene(scene);
     }
 
     private void addRandomAbsence(){

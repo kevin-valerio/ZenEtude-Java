@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 
+import static ZenEtude.ControllerAbsenceNote.*;
+import static ZenEtude.ControllerInscription.*;
 import static ZenEtude.ControllerInscription.isMailValid;
 import static ZenEtude.ControllerInscription.user;
 import static javafx.scene.control.Alert.AlertType.*;
@@ -60,14 +62,7 @@ public class ControllerAccueil {
             public void handle(ActionEvent event) {
 
                 //Au clic du boutton "S'inscrire", on affiche la page d'inscription
-                Squelette squelette = new Squelette("Inscription", Main.mainStage);
-
-
-                Parent conteneur = squelette.loadFXML("../xml_design/inscription.fxml");
-
-                Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
-                Main.mainStage.setScene(scene);
-
+                showInscription();
 
             }
         });
@@ -85,12 +80,8 @@ public class ControllerAccueil {
                                                if (user.isAuthorizedConnexion(txtMail.getText(), txtPassword.getText())) {
 
                                                    //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
-                                                   Squelette squelette = new Squelette("Notes et absences", Main.mainStage);
 
-                                                   Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
-
-                                                   Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
-                                                   Main.mainStage.setScene(scene);
+                                                   showAbsenceNote();
                                                }
                                                else {
                                                    Alerte mailNonValide = new Alerte(INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
@@ -107,5 +98,13 @@ public class ControllerAccueil {
 
 
     }
+    public static void showMain(){
+        Squelette squelette = new Squelette("Accueil", Main.mainStage);
+        Parent root = squelette.loadFXML("../xml_design/accueil.fxml");
 
+        Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());
+
+        Main.mainStage.setScene(scene);
+        Main.mainStage.show();
+    }
 }

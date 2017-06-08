@@ -12,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static ZenEtude.ControllerAccueil.*;
+
 public class ControllerInscription {
 
     @FXML  private Button btnRegister;
@@ -88,17 +90,20 @@ public class ControllerInscription {
             });
     }
 
-    private void showMain(){
-        Squelette squelette = new Squelette("Accueil", Main.mainStage);
-        Parent root = squelette.loadFXML("../xml_design/accueil.fxml");
 
-        Scene scene = new Scene(root, squelette.getpHeight(), squelette.getpWidth());
-
-        Main.mainStage.setScene(scene);
-        Main.mainStage.show();
-    }
      public String localDateToString(LocalDate date) {
             return dateFormatter.format(date);
+
+    }
+
+    public static void showInscription(){
+        Squelette squelette = new Squelette("Inscription", Main.mainStage);
+
+
+        Parent conteneur = squelette.loadFXML("../xml_design/inscription.fxml");
+
+        Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
+        Main.mainStage.setScene(scene);
 
     }
 

@@ -107,13 +107,16 @@
                         </TabPane>
                      </children>
                   </Pane>
-                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" prefHeight="333.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
+                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" prefHeight="235.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;" visible="false">
                      <top>
-                        <BorderPane prefHeight="76.0" prefWidth="549.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />
+                        <BorderPane prefHeight="74.0" prefWidth="549.0" style="-fx-background-color: #f9f6dd;" BorderPane.alignment="CENTER" />
                      </top>
                      <center>
-                        <BorderPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="549.0" BorderPane.alignment="CENTER" />
-                     </center></BorderPane>
+                        <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="76.0" prefWidth="549.0" style="-fx-background-color: #e0f9e2;" BorderPane.alignment="TOP_LEFT" />
+                     </center>
+                     <bottom>
+                        <BorderPane prefHeight="85.0" prefWidth="549.0" style="-fx-background-color: #f9f2f7;" BorderPane.alignment="CENTER" />
+                     </bottom></BorderPane>
                </children>
             </Pane>
          </center>
