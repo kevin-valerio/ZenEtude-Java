@@ -125,6 +125,7 @@ public class ControllerAbsenceNote {
         Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
 
         Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
+
         getMainStage().setScene(scene);
     }
 
