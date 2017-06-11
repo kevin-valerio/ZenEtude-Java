@@ -1,9 +1,15 @@
 package ZenEtude;
 
+import javafx.animation.FadeTransition;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import static ZenEtude.ControllerAbsenceNote.*;
 import static ZenEtude.ControllerAccueil.*;
@@ -66,15 +72,25 @@ class Menu {
     public void afficherMenu(){
 
 
-        if(menuDeroulant.isVisible()){
-            menuDeroulant.setVisible(false);
-        }
-        else{
-            menuDeroulant.setVisible(true);
-        }
+        if(menuDeroulant.getOpacity() == 0){
+        for(int i=0; i < 100; i++){
+            try {
+                Thread.sleep(10);
+                menuDeroulant.setOpacity(i);
 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+         }
+        else {
+            menuDeroulant.setOpacity(100);
+
+        }
         //TODO : Ajouter un fade-in / fade-out
 
 
     }
+
+
 }

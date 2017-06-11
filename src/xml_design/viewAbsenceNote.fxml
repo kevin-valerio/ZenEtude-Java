@@ -107,7 +107,7 @@
                         </TabPane>
                      </children>
                   </Pane>
-                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;" visible="false">
+                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" opacity="0.0" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
                      <top>
                         <BorderPane fx:id="menuNoteAbsence" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: #f9f6dd;" BorderPane.alignment="CENTER">
                            <center>

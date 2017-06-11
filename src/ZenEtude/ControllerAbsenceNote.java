@@ -15,6 +15,7 @@ import java.util.Date;
 
 import static ZenEtude.ControllerInscription.getUser;
 import static ZenEtude.Main.*;
+import static ZenEtude.Menu.isViewable;
 
 @SuppressWarnings("deprecation")
 public class ControllerAbsenceNote {
@@ -95,7 +96,7 @@ public class ControllerAbsenceNote {
         menuList.setOnMouseClicked(event -> {
             menu.afficherMenu();
             menu.setColor("#eee4c2", menuDeroulant);
-            if(menuDeroulant.isVisible()){
+            if(menuDeroulant.getOpacity() == 100){
                 menuList.setStyle("-fx-background-color: #eee4c2");
             }
             else{
