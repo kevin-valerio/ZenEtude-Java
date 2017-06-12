@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
 <VBox prefHeight="938.0" prefWidth="1659.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ZenEtude.ControllerProfil">
    <children>
       <BorderPane prefHeight="139.0" prefWidth="1659.0" style="-fx-background-color: white;">
@@ -54,7 +62,55 @@
             <Pane maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="1659.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane layoutX="130.0" layoutY="25.0" prefHeight="614.0" prefWidth="1390.0" style="-fx-background-color: white;" />
-                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" focusTraversable="true" layoutX="1118.0" layoutY="-1.0" opacity="0.83" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">
+                  <Pane layoutX="281.0" layoutY="61.0" prefHeight="558.0" prefWidth="1156.0" style="-fx-background-color: #FFF2;">
+                     <children>
+                        <TextField fx:id="txtMail" layoutX="57.0" layoutY="112.0" prefHeight="36.0" prefWidth="428.0" promptText="prenom.nom@mymail.com" />
+                        <TextField fx:id="txtPassword" layoutX="57.0" layoutY="188.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
+                        <Button id="btnChangeAvatar" fx:id="btnChangeAvatar" layoutX="297.0" layoutY="400.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="192.0" text="Choisir mon avatar">
+                           <font>
+                              <Font name="Gill Sans MT" size="26.0" />
+                           </font>
+                        </Button>
+                        <TextField id="txtRepeatPassword" fx:id="txtRepeatPassword" layoutX="59.0" layoutY="259.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
+                        <Label layoutX="58.0" layoutY="93.0" text="Adresse mail" />
+                        <Label layoutX="59.0" layoutY="168.0" text="Mot de passe" />
+                        <Label layoutX="59.0" layoutY="235.0" text="Validation du mot de passe" />
+                        <DatePicker id="dateBirthday" fx:id="dateBirthday" layoutX="60.0" layoutY="330.0" prefHeight="25.0" prefWidth="429.0" promptText="01/02/2003" />
+                        <Label layoutX="61.0" layoutY="306.0" text="Date de naissance" />
+                        <Label layoutX="305.0" layoutY="14.0" prefHeight="71.0" prefWidth="625.0" text="Vos informations sont présentes ci-dessous :" textFill="#686868" underline="true">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtEtablissement" layoutX="661.0" layoutY="251.0" prefHeight="36.0" prefWidth="428.0" promptText="IUT Aix-en-Provence" />
+                        <Label layoutX="660.0" layoutY="85.0" text="Nom" />
+                        <Label layoutX="661.0" layoutY="160.0" text="Prénom" />
+                        <Label layoutX="661.0" layoutY="227.0" text="Etablissement" />
+                        <Label layoutX="663.0" layoutY="298.0" text="Branche scolaire :" />
+                        <TextField fx:id="txtDomaine" layoutX="662.0" layoutY="325.0" prefHeight="36.0" prefWidth="428.0" promptText="Informatique" />
+                        <ImageView fitHeight="168.0" fitWidth="222.0" layoutX="65.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/logo.png" />
+                           </image></ImageView>
+                        <Button id="btnRegister" fx:id="btnRegister" layoutX="862.0" layoutY="471.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="228.0" text="Valider mes changements" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="Gill Sans MT" size="26.0" />
+                           </font>
+                        </Button>
+                        <Button id="btnDeleteAvatar" fx:id="btnDeleteAvatar" layoutX="297.0" layoutY="459.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="192.0" text="Supprimer son avatar">
+                           <font>
+                              <Font name="Gill Sans MT" size="26.0" />
+                           </font>
+                        </Button>
+                        <ChoiceBox layoutX="662.0" layoutY="394.0" prefHeight="25.0" prefWidth="178.0" />
+                        <Label layoutX="663.0" layoutY="372.0" text="Groupe" />
+                        <TextField fx:id="txtNom" blendMode="SRC_ATOP" focusTraversable="false" layoutX="659.0" layoutY="104.0" prefHeight="36.0" prefWidth="428.0" promptText="DUPONT" />
+                        <TextField fx:id="txtPrenom" blendMode="SRC_ATOP" focusTraversable="false" layoutX="659.0" layoutY="180.0" prefHeight="36.0" prefWidth="428.0" promptText="Jean" />
+                        <ChoiceBox layoutX="921.0" layoutY="394.0" prefHeight="25.0" prefWidth="167.0" />
+                        <Label layoutX="922.0" layoutY="372.0" text="Sous-groupe" />
+                     </children>
+                  </Pane>
+                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" focusTraversable="true" layoutX="1118.0" layoutY="-1.0" opacity="0.83" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;" visible="false">
                      <top>
                         <BorderPane fx:id="menuNoteAbsence" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: #f9f6dd;" BorderPane.alignment="CENTER">
                            <center>
@@ -94,54 +150,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor></BorderPane>
                      </bottom></BorderPane>
-                  <Pane layoutX="281.0" layoutY="61.0" prefHeight="558.0" prefWidth="1156.0" style="-fx-background-color: #FFF2;">
-                     <children>
-                        <TextField fx:id="txtMail" layoutX="57.0" layoutY="112.0" prefHeight="36.0" prefWidth="428.0" promptText="prenom.nom@mymail.com" />
-                        <TextField fx:id="txtPassword" layoutX="57.0" layoutY="188.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
-                        <Button id="btnChangeAvatar" fx:id="btnChangeAvatar" layoutX="297.0" layoutY="400.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="192.0" text="Choisir mon avatar">
-                           <font>
-                              <Font name="Gill Sans MT" size="26.0" />
-                           </font>
-                        </Button>
-                        <TextField id="txtRepeatPassword" fx:id="txtRepeatPassword" layoutX="59.0" layoutY="259.0" prefHeight="36.0" prefWidth="428.0" promptText="•••••••" />
-                        <Label layoutX="58.0" layoutY="93.0" text="Adresse mail" />
-                        <Label layoutX="59.0" layoutY="168.0" text="Mot de passe" />
-                        <Label layoutX="59.0" layoutY="235.0" text="Validation du mot de passe" />
-                        <DatePicker id="dateBirthday" fx:id="dateBirthday" layoutX="60.0" layoutY="330.0" prefHeight="25.0" prefWidth="429.0" promptText="01/02/2003" />
-                        <Label layoutX="61.0" layoutY="306.0" text="Date de naissance" />
-                        <Label layoutX="305.0" layoutY="14.0" prefHeight="71.0" prefWidth="537.0" text="Vos informations sont présentes ci-dessous :" textFill="#686868" underline="true">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtEtablissement" layoutX="661.0" layoutY="251.0" prefHeight="36.0" prefWidth="428.0" promptText="IUT Aix-en-Provence" />
-                        <Label layoutX="660.0" layoutY="85.0" text="Nom" />
-                        <Label layoutX="661.0" layoutY="160.0" text="Prénom" />
-                        <Label layoutX="661.0" layoutY="227.0" text="Etablissement" />
-                        <Label layoutX="663.0" layoutY="298.0" text="Branche scolaire :" />
-                        <TextField fx:id="txtDomaine" layoutX="662.0" layoutY="325.0" prefHeight="36.0" prefWidth="428.0" promptText="Informatique" />
-                        <ImageView fitHeight="168.0" fitWidth="222.0" layoutX="65.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../img/logo.png" />
-                           </image></ImageView>
-                        <Button id="btnRegister" fx:id="btnRegister" layoutX="862.0" layoutY="471.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="228.0" text="Valider mes changements" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
-                           <font>
-                              <Font name="Gill Sans MT" size="26.0" />
-                           </font>
-                        </Button>
-                        <Button id="btnDeleteAvatar" fx:id="btnDeleteAvatar" layoutX="297.0" layoutY="459.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="192.0" text="Supprimer son avatar">
-                           <font>
-                              <Font name="Gill Sans MT" size="26.0" />
-                           </font>
-                        </Button>
-                        <ChoiceBox layoutX="662.0" layoutY="394.0" prefHeight="25.0" prefWidth="178.0" />
-                        <Label layoutX="663.0" layoutY="372.0" text="Groupe" />
-                        <TextField fx:id="txtNom" blendMode="SRC_ATOP" focusTraversable="false" layoutX="659.0" layoutY="104.0" prefHeight="36.0" prefWidth="428.0" promptText="DUPONT" />
-                        <TextField fx:id="txtPrenom" blendMode="SRC_ATOP" focusTraversable="false" layoutX="659.0" layoutY="180.0" prefHeight="36.0" prefWidth="428.0" promptText="Jean" />
-                        <ChoiceBox layoutX="921.0" layoutY="394.0" prefHeight="25.0" prefWidth="167.0" />
-                        <Label layoutX="922.0" layoutY="372.0" text="Sous-groupe" />
-                     </children>
-                  </Pane>
                </children>
             </Pane>
          </center>

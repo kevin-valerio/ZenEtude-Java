@@ -1,6 +1,8 @@
 package ZenEtude;
 
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,11 +20,9 @@ public class ControllerProfil {
     @FXML private BorderPane menuNoteAbsence;
     @FXML private BorderPane menuProfil;
 
-
-    @FXML
-    private Button btnChangeAvatar;
-    @FXML
-    private Button btnDeleteAvatar;
+    // Bouttons pour l'avatar
+    @FXML private Button btnChangeAvatar;
+    @FXML private Button btnDeleteAvatar;
 
     public static void showProfil() {
         Squelette squelette = new Squelette("Mon profil", getMainStage());
@@ -42,13 +42,13 @@ public class ControllerProfil {
         Menu menu = new Menu(menuList, menuDeroulant);
         menu.addMenuButtons(menuDeconnexion, menuNoteAbsence, menuProfil);
 
-        menuList.setOnMouseClicked(event -> {
-            menu.derouleMenu();
+        menuList.setOnMouseClicked(event -> menu.derouleMenu());
+
+        btnChangeAvatar.setOnAction(event -> {
+
         });
 
         menu.listenForClicks();
-
-
 
 
     }

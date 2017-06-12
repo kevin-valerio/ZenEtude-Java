@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.util.Date;
 
@@ -115,45 +116,31 @@ public class ControllerAbsenceNote {
     private void setAllTablesEditables() {
 
        /*
+           @brief
+           Si on est professeur, alors toutes les tables deviennent éditables et on peut définir
+           les notes et absences de chaque eleve
+       */
 
-       @brief
-       Si on est professeur, alors toutes les tables deviennent éditables et on peut définir
-       les notes et absences de chaque eleve
-        */
         matiereAbsenceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        matiereAbsenceColumn.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<Absence, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<Absence, String> t) {
-                        ((Absence) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setMatiere(t.getNewValue());
-                    }
-                }
+        matiereAbsenceColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setMatiere(t.getNewValue())
         );
 
         motifAbsenceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        motifAbsenceColumn.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<Absence, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<Absence, String> t) {
-                        ((Absence) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setMotif(t.getNewValue());
-                    }
-                }
+        motifAbsenceColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setMotif(t.getNewValue())
         );
 
         matiereColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        matiereColumn.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<Note, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<Note, String> t) {
-                        ((Note) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setMatiere((t.getNewValue()));
-                    }
-                }
+        matiereColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setMatiere((t.getNewValue()))
+        );
+
+
+        noteColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        noteColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setNote((t.getNewValue()))
+        );
+
+
+        coeffColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        coeffColumn.setOnEditCommit(t -> t.getTableView().getItems().get(t.getTablePosition().getRow()).setCoeff((t.getNewValue()))
         );
 
         //Alerte editNotApplied = new Alerte(Alert.AlertType.INFORMATION, true, "Vos 'edits' ne seront pas appliqués", "Attention, les modifications apportées ne seront pas appliquées ! ", "Ceci étant que la partie IHM du projet");
@@ -162,16 +149,17 @@ public class ControllerAbsenceNote {
     }
 
     private void showSearchBarForProf(){
+
         btnSearch.setVisible(true);
         txtNom.setVisible(true);
         lblSearch.setVisible(true);
+
     }
 
     public static void showAbsenceNote(){
+
         Squelette squelette = new Squelette("Notes et absences", getMainStage());
-
         Parent conteneur = squelette.loadFXML("../xml_design/viewAbsenceNote.fxml");
-
         Scene scene = new Scene(conteneur, squelette.getpHeight(), squelette.getpWidth());
 
         getMainStage().setScene(scene);
@@ -208,6 +196,5 @@ public class ControllerAbsenceNote {
 
 
     }
-
 
 }

@@ -26,6 +26,7 @@ public class Prompt {
 
 
     public String getResponse(){
+
         return result.get();
     }
 }
