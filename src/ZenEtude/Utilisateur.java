@@ -21,6 +21,8 @@ class Utilisateur {
         this.password = password;
         this.birthday = birthday;
 
+        this.myAvatar = new Image("/img/logo.png");
+
     }
 
     public Boolean getIsProf() {
@@ -52,4 +54,7 @@ class Utilisateur {
     }
 
 
+    public void setAvatar(Image avatar) {
+        this.myAvatar = avatar;
+    }
 }
