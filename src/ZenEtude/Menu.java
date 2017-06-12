@@ -16,6 +16,7 @@ class Menu {
     private BorderPane menuProfil;
 
     Menu(BorderPane menuList, BorderPane menuDeroulant) {
+
         this.menuDeroulant = menuDeroulant;
         this.menuFixe = menuList;
 
@@ -78,14 +79,10 @@ class Menu {
 
     public void afficherMenu(){
 
-
-        if(menuDeroulant.getOpacity() == 0){
+        if (menuDeroulant.getOpacity() == 0)
                 fadeIn();
-        }
-        else {
+        else
             fadeOut();
-
-        }
 
     }
 

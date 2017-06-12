@@ -5,7 +5,10 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -16,8 +19,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import static ZenEtude.ControllerAbsenceNote.showAbsenceNote;
 import static ZenEtude.ControllerInscription.getUser;
 import static ZenEtude.Main.getMainStage;
+import static javafx.collections.FXCollections.observableArrayList;
 
 public class ControllerProfil {
 
@@ -30,9 +35,26 @@ public class ControllerProfil {
     @FXML
     private ImageView imageViewAvatar;
 
+
+    @FXML
+    private ChoiceBox choiceSGroupe;
+    @FXML
+    private ChoiceBox choiceGroupe;
+    @FXML
+    private TextField txtNom;
+    @FXML
+    private TextField txtPrenom;
+    @FXML
+    private TextField txtDomaine;
+    @FXML
+    private TextField txtEtablissement;
+
+
     // Bouttons pour l'avatar
     @FXML private Button btnChangeAvatar;
     @FXML private Button btnDeleteAvatar;
+    @FXML
+    private Button btnRegister;
 
     public static void showProfil() {
         Squelette squelette = new Squelette("Mon profil", getMainStage());
@@ -48,7 +70,18 @@ public class ControllerProfil {
     @FXML
     private void initialize() {
 
+        choiceGroupe.setItems(observableArrayList(
+                "Groupe 1",
+                "Groupe 2",
+                "Groupe 3",
+                "Groupe 4"));
+
+        choiceSGroupe.setItems(observableArrayList(
+                "Sous-groupe A",
+                "Sous-groupe B"));
+
         // Gestion des events lors du click sur le menu (menuList)
+
         Menu menu = new Menu(menuList, menuDeroulant);
         menu.addMenuButtons(menuDeconnexion, menuNoteAbsence, menuProfil);
 
@@ -58,13 +91,29 @@ public class ControllerProfil {
 
         btnDeleteAvatar.setOnAction(event -> setDefaultAvatar());
 
+        btnRegister.setOnAction(event -> {
+
+            getUser().setPrenom(txtPrenom.getText());
+            getUser().setNom(txtNom.getText());
+            getUser().setBranche(txtDomaine.getText());
+            getUser().setEtablissement(txtEtablissement.getText());
+            getUser().setGroupe(choiceGroupe.getSelectionModel().getSelectedItem().toString());
+            getUser().setSousgroupe(choiceSGroupe.getSelectionModel().getSelectedItem().toString());
+
+            Alerte succes = new Alerte(Alert.AlertType.CONFIRMATION, true, "Vos modifications ont été enregistrées",
+                    "Vous allez être redirigés à l'accueil !", null);
+            showAbsenceNote();
+        });
+
         menu.listenForClicks();
 
 
     }
 
     private void setDefaultAvatar() {
-
+        Image defautImage = new Image("/img/logo.png");
+        getUser().setAvatar(defautImage);
+        imageViewAvatar.setImage(defautImage);
     }
 
     private void uploadImage() {

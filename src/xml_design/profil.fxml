@@ -95,15 +95,19 @@
                               <Font name="Gill Sans MT" size="26.0" />
                            </font>
                         </Button>
-                        <ChoiceBox layoutX="662.0" layoutY="394.0" prefHeight="25.0" prefWidth="178.0" />
+                         <ChoiceBox fx:id="choiceGroupe" layoutX="662.0" layoutY="394.0" prefHeight="25.0"
+                                    prefWidth="178.0"/>
                         <Label layoutX="663.0" layoutY="372.0" text="Groupe" />
                         <TextField fx:id="txtNom" blendMode="SRC_ATOP" focusTraversable="false" layoutX="659.0" layoutY="104.0" prefHeight="36.0" prefWidth="428.0" promptText="DUPONT" />
                         <TextField fx:id="txtPrenom" blendMode="SRC_ATOP" focusTraversable="false" layoutX="659.0" layoutY="180.0" prefHeight="36.0" prefWidth="428.0" promptText="Jean" />
-                        <ChoiceBox layoutX="921.0" layoutY="394.0" prefHeight="25.0" prefWidth="167.0" />
+                         <ChoiceBox fx:id="choiceSGroupe" layoutX="921.0" layoutY="394.0" prefHeight="25.0"
+                                    prefWidth="167.0"/>
                         <Label layoutX="922.0" layoutY="372.0" text="Sous-groupe" />
                      </children>
                   </Pane>
-                  <BorderPane id="menuDeroulant" fx:id="menuDeroulant" focusTraversable="true" layoutX="1118.0" layoutY="-1.0" opacity="0.83" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;" visible="false">
+                   <BorderPane id="menuDeroulant" fx:id="menuDeroulant" focusTraversable="true" layoutX="1118.0"
+                               layoutY="-1.0" opacity="0.0" prefHeight="278.0" prefWidth="549.0"
+                               style="-fx-background-color: #f3f1ea;">
                      <top>
                         <BorderPane fx:id="menuNoteAbsence" prefHeight="100.0" prefWidth="549.0" style="-fx-background-color: #f9f6dd;" BorderPane.alignment="CENTER">
                            <center>
