@@ -1,6 +1,7 @@
 package ZenEtude;
 
 import javafx.animation.FadeTransition;
+import javafx.animation.Transition;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.Border;
@@ -73,24 +74,33 @@ class Menu {
 
 
         if(menuDeroulant.getOpacity() == 0){
-        for(int i=0; i < 100; i++){
-            try {
-                Thread.sleep(10);
-                menuDeroulant.setOpacity(i);
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+                fadeIn();
         }
-         }
         else {
-            menuDeroulant.setOpacity(100);
+            fadeOut();
 
         }
-        //TODO : Ajouter un fade-in / fade-out
-
 
     }
 
 
+    private void fadeIn(){
+        for(int i=0; i < 100; i++) {
+
+            FadeTransition ft = new FadeTransition(Duration.millis(300), menuDeroulant);
+            ft.setFromValue(0.0);
+            ft.setToValue(1.0);
+            ft.play();
+        }
+    }
+
+    private void fadeOut(){
+        for(int i=0; i < 100; i++) {
+
+            FadeTransition ft = new FadeTransition(Duration.millis(300), menuDeroulant);
+            ft.setFromValue(1.0);
+            ft.setToValue(0);
+            ft.play();
+        }
+    }
 }
