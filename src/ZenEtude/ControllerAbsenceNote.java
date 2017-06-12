@@ -2,23 +2,26 @@ package ZenEtude;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 
 import java.util.Date;
 
-import static ZenEtude.ControllerInscription.getUser;
+ import static ZenEtude.ControllerInscription.getUser;
 import static ZenEtude.Main.*;
-import static ZenEtude.Menu.isViewable;
 
 @SuppressWarnings("deprecation")
 public class ControllerAbsenceNote {
+    // Objets pour que le professeur puisse chercher un eleve
+    @FXML private Button btnSearch;
+    @FXML private TextField txtNom;
+    @FXML private Label lblSearch;
 
     // BorderPane du menu (déroulant et fixe)
     @FXML private BorderPane menuList = new BorderPane();
@@ -101,11 +104,15 @@ public class ControllerAbsenceNote {
             }
             else{
                 menuList.setStyle("-fx-background-color: #f3f1ea");
-
             }
-
-
         });
+
+        if(getUser().getIsProf()){
+             showSearchBarForProf();
+            tableAbsence.setEditable(true);
+            tableNotes.setEditable(true);
+            setAllTablesEditables();
+        }
 
         menuDeconnexion.setOnMouseClicked(event -> {
             menu.pressedLogoutBtn();
@@ -120,6 +127,64 @@ public class ControllerAbsenceNote {
 
 
     }
+
+    private void setAllTablesEditables() {
+
+       /*
+
+       @brief
+       Si on est professeur, alors toutes les tables deviennent éditables et on peut définir
+       les notes et absences de chaque eleve
+        */
+        matiereAbsenceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        matiereAbsenceColumn.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Absence, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Absence, String> t) {
+                        ((Absence) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setMatiere(t.getNewValue());
+                    }
+                }
+        );
+
+        motifAbsenceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        motifAbsenceColumn.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Absence, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Absence, String> t) {
+                        ((Absence) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setMotif(t.getNewValue());
+                    }
+                }
+        );
+
+        matiereColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        matiereColumn.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<Note, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<Note, String> t) {
+                        ((Note) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setMatiere((t.getNewValue()));
+                    }
+                }
+        );
+
+
+
+    Alerte editNotApplied = new Alerte(Alert.AlertType.INFORMATION, true, "Vos 'edits' ne seront pas appliqués", "Attention, les modifications apportées ne seront pas appliquées ! ", "Ceci étant que la partie IHM du projet");
+
+
+    }
+
+    private void showSearchBarForProf(){
+        btnSearch.setVisible(true);
+        txtNom.setVisible(true);
+        lblSearch.setVisible(true);
+    }
+
     public static void showAbsenceNote(){
         Squelette squelette = new Squelette("Notes et absences", getMainStage());
 
