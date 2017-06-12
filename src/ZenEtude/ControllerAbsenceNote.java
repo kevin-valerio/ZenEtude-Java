@@ -13,8 +13,8 @@ import javafx.scene.layout.BorderPane;
 
 import java.util.Date;
 
- import static ZenEtude.ControllerInscription.getUser;
-import static ZenEtude.Main.*;
+import static ZenEtude.ControllerInscription.getUser;
+import static ZenEtude.Main.getMainStage;
 
 @SuppressWarnings("deprecation")
 public class ControllerAbsenceNote {
@@ -97,15 +97,10 @@ public class ControllerAbsenceNote {
         menu.addMenuButtons(menuDeconnexion, menuNoteAbsence, menuProfil);
 
         menuList.setOnMouseClicked(event -> {
-            menu.afficherMenu();
-            menu.setColor("#eee4c2", menuDeroulant);
-            if(menuDeroulant.getOpacity() == 100){
-                menuList.setStyle("-fx-background-color: #eee4c2");
-            }
-            else{
-                menuList.setStyle("-fx-background-color: #f3f1ea");
-            }
+           menu.derouleMenu();
         });
+
+        menu.listenForClicks();
 
         if(getUser().getIsProf()){
              showSearchBarForProf();
@@ -113,17 +108,6 @@ public class ControllerAbsenceNote {
             tableNotes.setEditable(true);
             setAllTablesEditables();
         }
-
-        menuDeconnexion.setOnMouseClicked(event -> {
-            menu.pressedLogoutBtn();
-        });
-        menuNoteAbsence.setOnMouseClicked(event -> {
-
-            menu.pressedNoteAbsenceBtn();
-        });
-        menuProfil.setOnMouseClicked(event -> {
-            menu.pressedProfilBtn();
-        });
 
 
     }
@@ -172,9 +156,7 @@ public class ControllerAbsenceNote {
                 }
         );
 
-
-
-    Alerte editNotApplied = new Alerte(Alert.AlertType.INFORMATION, true, "Vos 'edits' ne seront pas appliqués", "Attention, les modifications apportées ne seront pas appliquées ! ", "Ceci étant que la partie IHM du projet");
+        //Alerte editNotApplied = new Alerte(Alert.AlertType.INFORMATION, true, "Vos 'edits' ne seront pas appliqués", "Attention, les modifications apportées ne seront pas appliquées ! ", "Ceci étant que la partie IHM du projet");
 
 
     }

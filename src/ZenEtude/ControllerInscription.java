@@ -12,8 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static ZenEtude.ControllerAccueil.*;
-import static ZenEtude.Main.*;
+import static ZenEtude.ControllerAccueil.showMain;
+import static ZenEtude.Main.getMainStage;
 
 public class ControllerInscription {
 
@@ -89,7 +89,7 @@ public class ControllerInscription {
                         }
 
                         user = new Utilisateur(txtMail.getText(), txtPassword.getText(), dateBirthday.getValue());
-                        user.isProf(checkProf.isSelected());
+                        user.setIsProf(checkProf.isSelected());
 
                         showMain();
 

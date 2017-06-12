@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 import java.time.LocalDate;
 
-import static ZenEtude.ControllerAccueil.*;
+import static ZenEtude.ControllerAccueil.showMain;
 
 class Utilisateur {
 
@@ -51,7 +51,5 @@ class Utilisateur {
        );
     }
 
-    public void isProf(boolean selected) {
-        this.isProf = selected;
-    }
+
 }

@@ -1,20 +1,12 @@
 package ZenEtude;
 
 import javafx.animation.FadeTransition;
-import javafx.animation.Transition;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
-import static ZenEtude.ControllerAbsenceNote.*;
-import static ZenEtude.ControllerAccueil.*;
-import static ZenEtude.ControllerProfil.*;
+import static ZenEtude.ControllerAbsenceNote.showAbsenceNote;
+import static ZenEtude.ControllerAccueil.showMain;
+import static ZenEtude.ControllerProfil.showProfil;
 
 class Menu {
     private BorderPane menuFixe;
@@ -33,6 +25,20 @@ class Menu {
         this.menuDeconnexion = menuDeconnexion;
         this.menuNoteAbsence = menuNoteAbsence;
         this.menuProfil = menuProfil;
+
+    }
+
+    public void listenForClicks(){
+        menuDeconnexion.setOnMouseClicked(event -> {
+            this.pressedLogoutBtn();
+        });
+        menuNoteAbsence.setOnMouseClicked(event -> {
+
+            this.pressedNoteAbsenceBtn();
+        });
+        menuProfil.setOnMouseClicked(event -> {
+            this.pressedProfilBtn();
+        });
 
     }
 
@@ -101,6 +107,17 @@ class Menu {
             ft.setFromValue(1.0);
             ft.setToValue(0);
             ft.play();
+        }
+    }
+
+    public void derouleMenu() {
+        this.afficherMenu();
+        this.setColor("#eee4c2", menuDeroulant);
+        if(menuDeroulant.getOpacity() == 100){
+            menuFixe.setStyle("-fx-background-color: #eee4c2");
+        }
+        else{
+            menuFixe.setStyle("-fx-background-color: #f3f1ea");
         }
     }
 }

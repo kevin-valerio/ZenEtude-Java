@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<VBox prefHeight="938.0" prefWidth="1659.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ZenEtude.ControllerAbsenceNote">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<VBox prefHeight="938.0" prefWidth="1659.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ZenEtude.ControllerAbsenceNote">
    <children>
       <BorderPane prefHeight="139.0" prefWidth="1659.0" style="-fx-background-color: white;">
          <left>
@@ -105,6 +97,9 @@
                             </Tab>
                           </tabs>
                         </TabPane>
+                        <TextField id="txtNom" fx:id="txtNom" layoutX="488.0" layoutY="571.0" prefHeight="25.0" prefWidth="268.0" promptText="DUPONT Jean" visible="false" />
+                        <Label id="lblSearch" fx:id="lblSearch" layoutX="39.0" layoutY="575.0" text="Entrez un élève dont vous souhaitez voir et/ou éditer les notes et/ou absences    :" visible="false" />
+                        <Button id="btnSearch" fx:id="btnSearch" layoutX="785.0" layoutY="566.0" mnemonicParsing="false" prefHeight="2.0" prefWidth="125.0" text="Rechercher" visible="false" />
                      </children>
                   </Pane>
                   <BorderPane id="menuDeroulant" fx:id="menuDeroulant" layoutX="1118.0" layoutY="-1.0" opacity="0.0" prefHeight="278.0" prefWidth="549.0" style="-fx-background-color: #f3f1ea;">

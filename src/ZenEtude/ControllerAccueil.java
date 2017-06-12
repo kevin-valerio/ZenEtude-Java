@@ -9,10 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 
-import static ZenEtude.ControllerAbsenceNote.*;
 import static ZenEtude.ControllerInscription.*;
-import static ZenEtude.ControllerInscription.isMailValid;
-import static ZenEtude.Main.*;
+import static ZenEtude.Main.getMainStage;
 import static javafx.scene.control.Alert.AlertType.*;
 
 public class ControllerAccueil {
@@ -81,7 +79,7 @@ public class ControllerAccueil {
 
                                                    //Au clic du boutton "Se connecter" et si c'est validé, on affiche la page voir les absences/notes
 
-                                                   showAbsenceNote();
+                                                   ControllerAbsenceNote.showAbsenceNote();
                                                }
                                                else {
                                                    Alerte mailNonValide = new Alerte(INFORMATION, true, "Mail non valide", "Le mail rentré n'est pas valide", "Veuillez rentrer une adresse mail valide");
