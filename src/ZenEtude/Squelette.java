@@ -7,7 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-//Cette classe manipule des Stage et des Parent afin de leur définir des propriétés graphiques
+
+/**
+ * Cette classe manipule des Stages et des Parents afin de leur définir des propriétés graphiques
+ * @author Equipe 19
+ * @version 1.0
+ */
 
 public class Squelette   {
     private  int pWidth = 1660;
@@ -17,14 +22,29 @@ public class Squelette   {
 
     private String pTitle;
 
+    /**
+     *
+     * @return la largeur de la page
+     */
     int getpHeight(){
         return pWidth;
     }
+
+    /**
+     *
+     * @return la hauteur de la page
+     */
     int getpWidth() {
         return pHeight;
     }
 
-
+    /**
+     *
+     * @param titrePage
+     * le titre de la page
+     * @param leStage
+     * le stage dans lequel on souhaite créer la page
+     */
     Squelette(String titrePage, Stage leStage) {
 
         pTitle = "Zen'Etude - " + titrePage;
@@ -37,6 +57,13 @@ public class Squelette   {
         leStage.setMinWidth(pMinWidth);
     }
 
+    /**
+     *
+     * @param FXMLpath
+     * le fxml a load
+     * @return le conteneur, le loadeur du fxml
+     * @throws IOException si erreur de lecture du fxml
+     */
     Parent loadFXML(String FXMLpath){
         Parent conteneur = null;
         try {

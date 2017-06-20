@@ -24,14 +24,27 @@ import static ZenEtude.ControllerInscription.getUser;
 import static ZenEtude.Main.getMainStage;
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * ControllerProfil est la classe représentant le controller de profil.fxml
+ * *   @see <a href="prfoil.fxml"> profil.fxml </a>
+ *
+ * @author Equipe 19
+ * @version 1.0
+ */
+
 public class ControllerProfil {
 
     // BorderPane du menu (déroulant et fixe)
-    @FXML private BorderPane menuList = new BorderPane();
-    @FXML private BorderPane menuDeroulant = new BorderPane();
-    @FXML private BorderPane menuDeconnexion;
-    @FXML private BorderPane menuNoteAbsence;
-    @FXML private BorderPane menuProfil;
+    @FXML
+    private BorderPane menuList = new BorderPane();
+    @FXML
+    private BorderPane menuDeroulant = new BorderPane();
+    @FXML
+    private BorderPane menuDeconnexion;
+    @FXML
+    private BorderPane menuNoteAbsence;
+    @FXML
+    private BorderPane menuProfil;
     @FXML
     private ImageView imageViewAvatar;
 
@@ -51,11 +64,19 @@ public class ControllerProfil {
 
 
     // Bouttons pour l'avatar
-    @FXML private Button btnChangeAvatar;
-    @FXML private Button btnDeleteAvatar;
+    @FXML
+    private Button btnChangeAvatar;
+    @FXML
+    private Button btnDeleteAvatar;
     @FXML
     private Button btnRegister;
 
+    /**
+     * crée le squelette de la page     *
+     * @see Squelette
+     * load le fxml, crée la scene avec le loadeur et l'attribue au main stage
+     * @see Main#getMainStage()
+     */
     public static void showProfil() {
         Squelette squelette = new Squelette("Mon profil", getMainStage());
 
@@ -66,7 +87,9 @@ public class ControllerProfil {
         getMainStage().setScene(scene);
     }
 
-
+    /**
+     * initialise les choicebox, le menu(fixe+déroulant), lui ajoute les  différents boutons, et ajoute leur fonctionnalité à ces derniers
+     */
     @FXML
     private void initialize() {
 
@@ -110,11 +133,20 @@ public class ControllerProfil {
 
     }
 
+    /**
+     * met une image par default à l'avatar
+     */
+
     private void setDefaultAvatar() {
         Image defautImage = new Image("/img/logo.png");
         getUser().setAvatar(defautImage);
         imageViewAvatar.setImage(defautImage);
     }
+
+    /**
+     * upload une image pour l'avatar
+     * @throws IOException si l'image n'est pas lue
+     */
 
     private void uploadImage() {
         FileChooser fileChooser = new FileChooser();

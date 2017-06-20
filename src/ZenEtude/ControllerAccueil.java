@@ -13,6 +13,15 @@ import static ZenEtude.ControllerInscription.*;
 import static ZenEtude.Main.getMainStage;
 import static javafx.scene.control.Alert.AlertType.*;
 
+/**
+ *   ControllerAccueil est la classe représentant le controller de accueil.fxml
+ *   @see <a href="accueil.fxml"> accueil.fxml </a>
+
+ *
+ * @author Equipe 19
+ * @version 1.0
+ */
+
 public class ControllerAccueil {
 
 
@@ -28,6 +37,12 @@ public class ControllerAccueil {
     private TextField txtPassword;
 
     @FXML
+    /**
+     *  ajoute a chaque bouton sa fonctionnalité
+     *  @link Prompt
+     *  crée differentes alertes selon les cas
+     *  @see Alerte
+     */
     private void initialize() {
 
         mdpOublie.setOnAction(event -> {
@@ -96,6 +111,13 @@ public class ControllerAccueil {
 
 
     }
+
+    /**
+     *  crée le squelette de la page
+     *  @see Squelette
+     *  load le fxml, crée la scene avec le loadeur et l'attribue au main stage
+     *  @see Main#getMainStage()
+     */
     public static void showMain(){
         Squelette squelette = new Squelette("Accueil", getMainStage());
         Parent root = squelette.loadFXML("../xml_design/accueil.fxml");

@@ -15,6 +15,15 @@ import java.util.regex.Pattern;
 import static ZenEtude.ControllerAccueil.showMain;
 import static ZenEtude.Main.getMainStage;
 
+/**
+ *   ControllerInscription est la classe représentant le controller d' inscription.fxml
+ *   @see <a href="inscription.fxml"> inscription.fxml </a>
+
+ *
+ * @author Equipe 19
+ * @version 1.0
+ */
+
 public class ControllerInscription {
 
     @FXML  private Button btnRegister;
@@ -30,7 +39,12 @@ public class ControllerInscription {
     final String pattern = "yyyy-MM-dd";
     DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
 
-
+    /**
+     *
+     * @param mail
+     *              le mail à vérifier
+     * @return si le mail est valide ou non
+     */
     public  static boolean isMailValid(String mail){
         //Utilisation des REGEX pour valider l'adresse mail
         Pattern MAIL_VALID = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -39,11 +53,22 @@ public class ControllerInscription {
 
     }
 
+    /**
+     * @return l'utilisateur
+     */
     public static Utilisateur getUser() {
         return user;
     }
 
     @FXML
+    /** ajoute au bouton sa fonctionnalité
+     *  crée differentes alertes selon les cas
+     *  @see Alerte
+     *  crée l'utilisateur avec ses informations
+     *  @see Utilisateur
+     *  crée le squelette...ect
+     *  @see ControllerAccueil#showMain()
+     */
     private void initialize() {
 
             btnRegister.setOnAction(new EventHandler<ActionEvent>() {
@@ -98,12 +123,23 @@ public class ControllerInscription {
             });
     }
 
-
+    /**
+     *
+     * @param date
+     * date à convertir
+     * @return la date sous forme de string
+     */
      public String localDateToString(LocalDate date) {
             return dateFormatter.format(date);
 
     }
 
+    /**
+     *  crée le squelette de la page
+     *  @see Squelette
+     *  load le fxml, crée la scene avec le loadeur et l'attribue au main stage
+     *  @see Main#getMainStage()
+     */
     public static void showInscription(){
         Squelette squelette = new Squelette("Inscription", getMainStage());
 

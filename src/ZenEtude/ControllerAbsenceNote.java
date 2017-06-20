@@ -2,7 +2,6 @@ package ZenEtude;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,7 +16,16 @@ import java.util.Date;
 import static ZenEtude.ControllerInscription.getUser;
 import static ZenEtude.Main.getMainStage;
 
+
+/**
+ *   ControllerAbsenceNote est la classe représentant le controller de viewAbsenceNote.fxml
+ *   @see  <a href="wiewAbsenceNote.fxml"> wiewAbsenceNote.fxml </a>
+ *
+ * @author Equipe 19
+ * @version 1.0
+ */
 @SuppressWarnings("deprecation")
+
 public class ControllerAbsenceNote {
     // Objets pour que le professeur puisse chercher un eleve
     @FXML private Button btnSearch;
@@ -86,6 +94,12 @@ public class ControllerAbsenceNote {
 
 
     @FXML
+    /**
+     * initialise le pseudolabel avec le mail de l'utilisateur, la table notes et absences puis la remplit de notes et absences aléatoires
+     * @see #initTable()
+     * @see #addRandomAbsence()
+     * @see #addRandomNotes()
+     */
     private void initialize() {
 
         pseudoLabel.setText(getUser().getMail());
@@ -113,12 +127,16 @@ public class ControllerAbsenceNote {
 
     }
 
+    /**
+     *
+     */
+
     private void setAllTablesEditables() {
 
-       /*
-           @brief
+       /**
            Si on est professeur, alors toutes les tables deviennent éditables et on peut définir
            les notes et absences de chaque eleve
+
        */
 
         matiereAbsenceColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -148,6 +166,9 @@ public class ControllerAbsenceNote {
 
     }
 
+    /**
+     * pour les profs, rend visible la barre de recherche d'élèves
+     */
     private void showSearchBarForProf(){
 
         btnSearch.setVisible(true);
@@ -156,6 +177,15 @@ public class ControllerAbsenceNote {
 
     }
 
+    /**
+     * crée le squelette de la page
+     * @see Squelette
+     * load le fxml
+     * cree la scene (avec le loadeur) et l'attribue au main stage
+     * @see Main#getMainStage()
+     *
+     *
+     */
     public static void showAbsenceNote(){
 
         Squelette squelette = new Squelette("Notes et absences", getMainStage());
@@ -165,23 +195,44 @@ public class ControllerAbsenceNote {
         getMainStage().setScene(scene);
     }
 
+    /**
+     * ajoute des absences aléatoires à la table
+     */
+
     private void addRandomAbsence(){
         tableAbsence.setItems(absenceArray);
 
     }
 
+    /**
+     * ajoute des notes aléaoires à la table
+     */
     private void addRandomNotes(){
         tableNotes.setItems(noteArray);
 
     }
 
+    /**
+     *
+     * @return le menu list(fixe)
+     */
+
     public BorderPane getMenuList() {
         return menuList;
     }
 
+    /**
+     *
+     * @return le menu déroulant
+     */
+
     public BorderPane getMenuDeroulant() {
         return menuDeroulant;
     }
+
+    /**
+     * initialise la table notes et absences
+     */
 
     private void initTable(){
 
